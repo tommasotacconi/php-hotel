@@ -40,6 +40,8 @@
 
     ];
 
+    var_dump($hotels);
+
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -56,9 +58,8 @@
     <link href="./style/style.css" rel="stylesheet">
   </head>
   <body>
-    <div class="container-md">
-      <h1 class="py-4">HOTELS WEBPAGE</h1>
+    <main>
       
-    </div>
+    </main>
   </body>
 </html>
