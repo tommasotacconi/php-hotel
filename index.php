@@ -42,6 +42,10 @@
 
     // var_dump($hotels);
 
+    // hotel filtrati con select
+    $filtered_hotels = array_filter($hotels, function ($var) {
+      return $var['parking'] === true;
+    });
 ?>
 <!DOCTYPE html>
 <html lang="it">
