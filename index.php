@@ -41,11 +41,6 @@
     ];
 
     // var_dump($hotels);
-
-    // hotel filtrati con select
-    $filtered_hotels = array_filter($hotels, function ($var) {
-      return $var['parking'] === true;
-    });
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -65,21 +60,38 @@
   </head>
   <body>
 
-    <main>
+    <main id="">
       <div class="container-md">
         <h1 class="py-4">HOTELS WEBPAGE</h1>
 
         <!-- Form -->
-        <form class="py-3" action="">
-          <label for="h-carpar" class="">Parking presence</label>
-          <select class="form-select form-select-sm w-25 pe-auto" name="h-carpar" id="">
-            <option selected disabled value="no-select"></option>
-            <option value="true">present</option>
-          </select>
+        <form class="py-3 d-flex" action="./result.php">
+          <label for="h-carpark" class="w-25">
+            Parking presence
+            <select class="form-select form-select-sm pe-auto" name="h-carpark" id="h-carpark">
+              <option selected value=""></option>
+              <option value="true">present</option>
+            </select>
+          </label>
+          <label for="h-vote" class="ms-3">
+            Vote
+            <select class="form-select form-select-sm pe-auto" name="h-vote" id="h-vote">
+              <option value=""></option>
+              <?php for ($index = 1; $index < 6; $index++) {
+                echo "<option value=\"$index\">$index</option>";
+              } ?>
+            </select>
+          </label>
+
+          <!-- buttons -->
+          <div class="buttons-wrapper d-flex align-items-end">
+            <button class="btn btn-primary btn-sm ms-4">Search</button>
+
+          </div>
         </form>
 
         <!-- Section including hotels list -->
-        <section class="hotels-table">
+        <section id="all-hotels" class="mt-4">
           <!-- Tabella      -->
           <table class="table table-striped">
             <thead class="table-secondary">
@@ -89,7 +101,7 @@
                 <th class="hotel-description" scope="col">Description</th>
                 <th class="hotel-parking" scope="col-1">Parking presence</th>
                 <th class="hotel-vote" scope="col-1">Vote</th>
-                <th class="hotel-disto-center" scope="col-2">Distance to center</th>
+                <th class="hotel-disto-center" scope="col-2">Distance to center (km)</th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -108,5 +120,8 @@
         </section>
       </div>
     </main>
+
+    <!-- jscript connection -->
+    <script src="./jscript/script.js"></script>
   </body>
 </html>

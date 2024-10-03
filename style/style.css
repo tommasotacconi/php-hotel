@@ -2,7 +2,13 @@
 
 
 /* Utilities */
+#h-vote {
+  width: 60px;
+}
+
 .fa-circle-check:before {
   color: lightseagreen;
 }
+
+
 
