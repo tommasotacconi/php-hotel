@@ -40,7 +40,7 @@
 
     ];
 
-    var_dump($hotels);
+    // var_dump($hotels);
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +59,33 @@
   </head>
   <body>
     <main>
-      
+    <div class="container-md">
+        <h1 class="py-4">HOTELS WEBPAGE</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="hotel-index" scope="col">#</th>
+              <th class="hotel-name" scope="col">Name</th>
+              <th class="hotel-description" scope="col">Description</th>
+              <th class="hotel-parking" scope="col">Parking presence</th>
+              <th class="hotel-vote" scope="col">Vote</th>
+              <th class="hotel-disto-center" scope="col">Distance to center</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($hotels as $hotelNum => $hotel) { ?>
+            <tr>
+              <th scope="row"><?= $hotelNum + 1; ?></th>
+              <td><?= $hotel['name']; ?></td>
+              <td><?= $hotel['description']; ?></td>
+              <td><?= $hotel['parking']; ?></td>
+              <td><?= $hotel['vote']; ?></td>
+              <td><?= $hotel['distance_to_center']; ?></td>
+            </tr>
+            <?php } ; ?>
+          </tbody>
+        </table>    
+      </div>
     </main>
   </body>
 </html>
