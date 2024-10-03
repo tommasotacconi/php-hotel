@@ -60,33 +60,48 @@
     <link href="./style/style.css" rel="stylesheet">
   </head>
   <body>
+
     <main>
-    <div class="container-md">
+      <div class="container-md">
         <h1 class="py-4">HOTELS WEBPAGE</h1>
-        <table class="table table-striped">
-          <thead class="table-secondary">
-            <tr class="text-center">
-              <th class="hotel-index" scope="col">#</th>
-              <th class="hotel-name" scope="col">Name</th>
-              <th class="hotel-description" scope="col">Description</th>
-              <th class="hotel-parking" scope="col-1">Parking presence</th>
-              <th class="hotel-vote" scope="col-1">Vote</th>
-              <th class="hotel-disto-center" scope="col-2">Distance to center</th>
-            </tr>
-          </thead>
-          <tbody class="table-group-divider">
-            <?php foreach ($hotels as $hotelNum => $hotel) { ?>
-            <tr class="text-center">
-              <th scope="row"><?= $hotelNum + 1; ?></th>
-              <td><?= $hotel['name']; ?></td>
-              <td class="text-start"><?= $hotel['description']; ?></td>
-              <td><?= $hotel['parking'] ? '<i class="fa-regular fa-circle-check"></i>' : '' ?></td>
-              <td><?= $hotel['vote']; ?></td>
-              <td><?= $hotel['distance_to_center']; ?></td>
-            </tr>
-            <?php } ; ?>
-          </tbody>
-        </table>    
+
+        <!-- Form -->
+        <form class="py-3" action="">
+          <label for="h-carpar" class="">Parking presence</label>
+          <select class="form-select form-select-sm w-25 pe-auto" name="h-carpar" id="">
+            <option selected disabled value="no-select"></option>
+            <option value="true">present</option>
+          </select>
+        </form>
+
+        <!-- Section including hotels list -->
+        <section class="hotels-table">
+          <!-- Tabella      -->
+          <table class="table table-striped">
+            <thead class="table-secondary">
+              <tr class="text-center">
+                <th class="hotel-index" scope="col">#</th>
+                <th class="hotel-name" scope="col">Name</th>
+                <th class="hotel-description" scope="col">Description</th>
+                <th class="hotel-parking" scope="col-1">Parking presence</th>
+                <th class="hotel-vote" scope="col-1">Vote</th>
+                <th class="hotel-disto-center" scope="col-2">Distance to center</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <?php foreach ($hotels as $hotelNum => $hotel) { ?>
+              <tr class="text-center">
+                <th scope="row"><?= $hotelNum + 1; ?></th>
+                <td><?= $hotel['name']; ?></td>
+                <td class="text-start"><?= $hotel['description']; ?></td>
+                <td><?= $hotel['parking'] ? '<i class="fa-regular fa-circle-check"></i>' : '' ?></td>
+                <td><?= $hotel['vote']; ?></td>
+                <td><?= $hotel['distance_to_center']; ?></td>
+              </tr>
+              <?php } ; ?>
+            </tbody>
+          </table>    
+        </section>
       </div>
     </main>
   </body>
